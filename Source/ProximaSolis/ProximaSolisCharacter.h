@@ -3,11 +3,12 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "BaseCharacter.h"
 #include "GameFramework/Character.h"
 #include "ProximaSolisCharacter.generated.h"
 
 UCLASS(config=Game)
-class AProximaSolisCharacter : public ACharacter
+class AProximaSolisCharacter : public ABaseCharacter
 {
 	GENERATED_BODY()
 
@@ -49,11 +50,9 @@ protected:
 	 */
 	void LookUpAtRate(float Rate);
 
-	/** Handler for when a touch input begins. */
-	void TouchStarted(ETouchIndex::Type FingerIndex, FVector Location);
-
-	/** Handler for when a touch input stops. */
-	void TouchStopped(ETouchIndex::Type FingerIndex, FVector Location);
+	/** Custom inputs for the game. */
+	void Attack();
+	void Parry();
 
 protected:
 	// APawn interface

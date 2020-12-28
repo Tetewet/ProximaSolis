@@ -28,7 +28,7 @@ AProximaSolisCharacter::AProximaSolisCharacter()
 	// Configure character movement
 	GetCharacterMovement()->bOrientRotationToMovement = true; // Character moves in the direction of input...	
 	GetCharacterMovement()->RotationRate = FRotator(0.0f, 540.0f, 0.0f); // ...at this rotation rate
-	GetCharacterMovement()->JumpZVelocity = 300.f;
+	GetCharacterMovement()->JumpZVelocity = 500.f;
 	GetCharacterMovement()->AirControl = 0.2f;
 
 	// Create a camera boom (pulls in towards the player if there is a collision)
@@ -67,20 +67,19 @@ void AProximaSolisCharacter::SetupPlayerInputComponent(class UInputComponent* Pl
 	PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
 	PlayerInputComponent->BindAxis("LookUpRate", this, &AProximaSolisCharacter::LookUpAtRate);
 
-	// handle touch devices
-	PlayerInputComponent->BindTouch(IE_Pressed, this, &AProximaSolisCharacter::TouchStarted);
-	PlayerInputComponent->BindTouch(IE_Released, this, &AProximaSolisCharacter::TouchStopped);
+	// Custom inputs
+	PlayerInputComponent->BindAction("Attack", IE_Pressed, this, &AProximaSolisCharacter::Attack);
+	PlayerInputComponent->BindAction("Parry", IE_Pressed, this, &AProximaSolisCharacter::Parry);
+}
+
+void AProximaSolisCharacter::Attack()
+{
 
 }
 
-void AProximaSolisCharacter::TouchStarted(ETouchIndex::Type FingerIndex, FVector Location)
+void AProximaSolisCharacter::Parry()
 {
-		Jump();
-}
 
-void AProximaSolisCharacter::TouchStopped(ETouchIndex::Type FingerIndex, FVector Location)
-{
-		StopJumping();
 }
 
 void AProximaSolisCharacter::TurnAtRate(float Rate)
