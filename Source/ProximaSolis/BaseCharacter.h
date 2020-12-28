@@ -33,11 +33,15 @@ public:
 	// Sets default values for this character's properties
 	ABaseCharacter();
 
+	/** Characters' attributes.*/
+	UPROPERTY(BlueprintReadWrite, Category = "Attributes")
+		URPGComponent* Attributes;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:	
+public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 

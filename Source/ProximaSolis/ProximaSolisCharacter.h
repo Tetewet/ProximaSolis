@@ -30,6 +30,10 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float BaseLookUpRate;
 
+	// Player's main HUD
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Main HUD")
+		TSubclassOf<UUserWidget> WBP_MainHUD;
+
 protected:
 
 	/** Called for forwards/backward input */
