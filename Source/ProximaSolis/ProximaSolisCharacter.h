@@ -34,6 +34,20 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Main HUD")
 		TSubclassOf<UUserWidget> WBP_MainHUD;
 
+	// Player animation booleans
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AnimationBools")
+		bool IsInCombat;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AnimationBools")
+		bool IsDamaged;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AnimationBools")
+		bool IsArmed;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AnimationBools")
+		bool IsBlocking;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AnimationBools")
+		bool IsEquipped;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AnimationBools")
+		bool IsDead;
+
 protected:
 
 	/** Called for forwards/backward input */
